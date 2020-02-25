@@ -10,38 +10,47 @@ namespace Assignment2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please select a number from below");
-            Console.WriteLine("1.Enter Triangle dimention");
-            Console.WriteLine("2. Exit");
-
-            string userInput = Console.ReadLine();
-            string inputOne, inputTwo, inputThree;
-
-            switch (userInput)
+            int value = 0;
+            int inputOne;
+            int inputTwo;
+            int inputThree;
+            do
             {
-                case "1":
-                    Console.WriteLine("Please enter 1st side of triangle.");
-                    inputOne = Console.ReadLine();
-                    Console.WriteLine("Please enter 2nd side of triangle.");
-                    inputTwo = Console.ReadLine();
-                    Console.WriteLine("Please enter 3rd side of triangle.");
-                    inputThree = Console.ReadLine();
-                    //if (TriangleSolver.Analyze(sideOne,sideTwo,sideThree))
-                    //{
+                
+                Console.WriteLine("1.Enter Triangle dimention");
+                Console.WriteLine("2. Exit");
+                Console.Write("Please select a number from Above : ");
 
-                    //}
-                    break;
-                case "2":
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("Please select a number from below");
-                    Console.WriteLine("1.Enter Triangle dimention");
-                    Console.WriteLine("2. Exit");
-                    break;
+                try
+                {
+                    int userInput = int.Parse(Console.ReadLine());
 
 
-            }
+                    if (userInput == 1)
+                    {
+                        Console.Write("Please enter side 1 for triangle : ");
+                        inputOne = int.Parse(Console.ReadLine());
+                        Console.Write("Please enter side 2 for triangle : ");
+                        inputTwo = int.Parse(Console.ReadLine());
+                        Console.Write("Please enter side 3 for triangle : ");
+                        inputThree = int.Parse(Console.ReadLine());
+
+                        string answer = Assignment2.TriangleSolver.Analyze(inputOne, inputTwo, inputThree);
+                    }
+
+                    else if(userInput == 2)
+                    {
+                        userInput = 1;
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine("Plese enter valid number");
+                 
+                }
+            } while (value == 0);
+            
         }
     }
 }
